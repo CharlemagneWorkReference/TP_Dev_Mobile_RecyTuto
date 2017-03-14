@@ -1,5 +1,6 @@
 package com.oneday_online.todolist;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -39,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
         Log.i("INIT", "Fin initialisation composantes");
 
         // Test d'ajout d'un item
-//        TodoItem item = new TodoItem(TodoItem.Tags.Important, "Réviser ses cours");
-//        TodoDbHelper.addItem(item, getBaseContext());
-//        item = new TodoItem(TodoItem.Tags.Normal, "Acheter du pain");
-//        TodoDbHelper.addItem(item, getBaseContext());
+        TodoItem item = new TodoItem(TodoItem.Tags.Important, "Réviser ses cours");
+        TodoDbHelper.addItem(item, getBaseContext());
+        item = new TodoItem(TodoItem.Tags.Normal, "Acheter du pain");
+        TodoDbHelper.addItem(item, getBaseContext());
 
         // On récupère les items
         items = TodoDbHelper.getItems(getBaseContext());
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -75,9 +76,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-        //    return true;
-        //}
+        if (id == R.id.action_debug) {
+            startActivity(new Intent(MainActivity.this,AndroidDatabaseManager.class));
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
