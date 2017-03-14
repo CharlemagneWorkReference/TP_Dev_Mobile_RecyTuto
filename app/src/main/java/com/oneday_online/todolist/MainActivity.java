@@ -33,17 +33,16 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            startActivity(new Intent(MainActivity.this,AddActivity.class));
             }
         });
         Log.i("INIT", "Fin initialisation composantes");
 
         // Test d'ajout d'un item
-        TodoItem item = new TodoItem(TodoItem.Tags.Important, "Réviser ses cours");
-        TodoDbHelper.addItem(item, getBaseContext());
-        item = new TodoItem(TodoItem.Tags.Normal, "Acheter du pain");
-        TodoDbHelper.addItem(item, getBaseContext());
+//        TodoItem item = new TodoItem(TodoItem.Tags.Important, "Réviser ses cours");
+//        TodoDbHelper.addItem(item, getBaseContext());
+//        item = new TodoItem(TodoItem.Tags.Normal, "Acheter du pain");
+//        TodoDbHelper.addItem(item, getBaseContext());
 
         // On récupère les items
         items = TodoDbHelper.getItems(getBaseContext());

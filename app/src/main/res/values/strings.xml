@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Les listes avec les RecyclerView</string>
     <string name="action_debug">Debug</string>
+
+    <string name="taskname">Nom de la tâche</string>
+    <string-array name="imp">
+        <item>Faible</item>
+        <item>Normal</item>
+        <item>Important</item>
+    </string-array>
 </resources>
