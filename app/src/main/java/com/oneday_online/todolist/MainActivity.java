@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -74,10 +75,15 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_debug) {
-            startActivity(new Intent(MainActivity.this,AndroidDatabaseManager.class));
-            return true;
+        switch (id){
+            case R.id.action_debug:
+                startActivity(new Intent(MainActivity.this,AndroidDatabaseManager.class));
+                return true;
+            case R.id.action_clear:
+                TodoDbHelper.emptyList(MainActivity.this);
+                update();
+                Toast.makeText(MainActivity.this, R.string.list_empty, Toast.LENGTH_LONG).show();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -110,5 +116,21 @@ public class MainActivity extends AppCompatActivity {
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchCallback);
         itemTouchHelper.attachToRecyclerView(recycler);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        update();
+    }
+
+    /**
+     * Met à jour la liste
+     */
+    private void update(){
+        items.clear();
+        items = TodoDbHelper.getItems(this);
+        adapter = new RecyclerAdapter(items);
+        recycler.setAdapter(adapter);
     }
 }

@@ -97,6 +97,18 @@ public class TodoDbHelper extends SQLiteOpenHelper {
         dbHelper.close();
     }
 
+    /**
+     * Vide la base de donnée
+     * @param context Context
+     */
+    static void emptyList(Context context) {
+        TodoDbHelper dbHelper = new TodoDbHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.execSQL("DELETE FROM " + TodoContract.TodoEntry.TABLE_NAME);
+        db.execSQL("VACUUM");
+        dbHelper.close();
+    }
+
     public ArrayList<Cursor> getData(String Query){
         //get writable database
         SQLiteDatabase sqlDB = this.getWritableDatabase();
