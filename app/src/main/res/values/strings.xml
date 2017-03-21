@@ -5,6 +5,8 @@
 
     <string name="list_empty">Liste vidée</string>
 
+    <string name="add">Ajouter !</string>
+    <string name="imp">Importance :</string>
     <string name="taskname">Nom de la tâche</string>
     <string-array name="imp">
         <item>Faible</item>

@@ -47,11 +47,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/add"
         android:layout_below="@+id/imp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="133dp"
-        tools:text="Ajouter !"
-        android:text="Ajouter !" />
+        android:text="@string/add"
+        android:id="@+id/add" />
+
+    <TextView
+        android:text="@string/imp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:id="@+id/textView2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:layout_alignBottom="@+id/imp"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
