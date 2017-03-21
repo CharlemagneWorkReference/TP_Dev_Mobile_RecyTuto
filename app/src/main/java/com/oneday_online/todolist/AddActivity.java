@@ -39,7 +39,7 @@ public class AddActivity extends AppCompatActivity {
                 if (taskname.getText().toString().equals("")){
                     AlertDialog alertDialog = new AlertDialog.Builder(AddActivity.this).create();
                     alertDialog.setTitle("Attention");
-                    alertDialog.setMessage("Veuillez inserer un Nom de tâche");
+                    alertDialog.setMessage("Veuillez insérer un nom de tâche");
                     alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {

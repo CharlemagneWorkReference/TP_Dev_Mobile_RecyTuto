@@ -31,6 +31,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.TodoHo
         holder.bindTodo(it);
     }
 
+
     @Override
     public int getItemCount() {
         return items.size();
