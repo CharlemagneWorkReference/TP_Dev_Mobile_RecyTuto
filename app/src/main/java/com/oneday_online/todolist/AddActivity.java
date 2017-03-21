@@ -37,11 +37,11 @@ public class AddActivity extends AppCompatActivity {
                         TodoDbHelper.addItem(i,AddActivity.this);
                         break;
                     case 1:
-                        TodoItem i2 = new TodoItem(TodoItem.Tags.Faible,taskname.getText().toString());
+                        TodoItem i2 = new TodoItem(TodoItem.Tags.Normal,taskname.getText().toString());
                         TodoDbHelper.addItem(i2,AddActivity.this);
                         break;
                     case 2:
-                        TodoItem i3 = new TodoItem(TodoItem.Tags.Faible,taskname.getText().toString());
+                        TodoItem i3 = new TodoItem(TodoItem.Tags.Important,taskname.getText().toString());
                         TodoDbHelper.addItem(i3,AddActivity.this);
                         break;
                 }
