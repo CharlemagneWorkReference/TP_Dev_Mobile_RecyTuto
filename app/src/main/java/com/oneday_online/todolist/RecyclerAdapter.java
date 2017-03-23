@@ -43,10 +43,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.TodoHo
         private Switch sw;
         private TextView label;
         private TodoItem item;
+        private View v;
 
         public TodoHolder(View itemView) {
             super(itemView);
-
+            v = itemView;
             image = (ImageView) itemView.findViewById(R.id.imageView);
             sw = (Switch) itemView.findViewById(R.id.switch1);
             label = (TextView) itemView.findViewById(R.id.textView);
@@ -56,6 +57,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.TodoHo
         public void bindTodo(TodoItem todo) {
             label.setText(todo.getLabel());
             sw.setChecked(todo.isDone());
+            if (todo.isDone()){
+                v.setBackgroundColor(resources.getColor(R.color.faible));
+            }
             switch(todo.getTag()) {
                 case Faible:
                     image.setBackgroundColor(resources.getColor(R.color.faible));
