@@ -11,9 +11,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-public class TodoDbHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "todo.db";
+class TodoDbHelper extends SQLiteOpenHelper {
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "todo.db";
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TodoContract.TodoEntry.TABLE_NAME + " (" +
@@ -22,7 +22,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
                     TodoContract.TodoEntry.COLUMN_NAME_TAG + " TEXT,"  +
                     TodoContract.TodoEntry.COLUMN_NAME_DONE +  " INTEGER)";
 
-    public TodoDbHelper(Context context) {
+    TodoDbHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
@@ -109,7 +109,7 @@ public class TodoDbHelper extends SQLiteOpenHelper {
         dbHelper.close();
     }
 
-    public ArrayList<Cursor> getData(String Query){
+    ArrayList<Cursor> getData(String Query){
         //get writable database
         SQLiteDatabase sqlDB = this.getWritableDatabase();
         String[] columns = new String[] { "mesage" };
